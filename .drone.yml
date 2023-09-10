@@ -60,7 +60,7 @@ pipeline:
       event: tag
 
   golang:
-    image: harbor.wu-boy.com/test/golang:1.9.0-alpine3.6
+    image: golang:1.9.0-alpine3.6
     group: testing
     commands:
       - go version
@@ -68,8 +68,8 @@ pipeline:
   publish:
     image: plugins/docker
     insecure: true
-    registry: harbor.wu-boy.com
-    repo: harbor.wu-boy.com/test/demo
+    registry: hub.docker.com
+    repo: ple35/drone-test
     dockerfile: Dockerfile
     secrets: [ docker_username, docker_password ]
     tags: [ latest, 1.1 ]
